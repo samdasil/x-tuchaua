@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./style.css" />
+	<title>X-Tuchaua</title>
+</head>
+<body>
+	<h2>Monte seu pedido no X-Tuchaua</h2>
+
+	<div class="container">
+		
+		<form id="form">
+
+			<div class="form-control">
+				<h3>X-SALADA</h3>
+			</div>
+			<div class="form-control">
+				<label for="amount">Valor (R$) :<br /></label>
+				<input type="text" id="valorXsalada" placeholder="" />
+			</div>
+			<div class="form-control">
+				<label for="text">Quantidade :</label>
+				<input type="number" id="qtdXsalada" min="1" />
+			</div>
+			<div class="form-control">
+				<h3>REFRIGERANTE</h3>
+			</div>
+			<div class="form-control">
+				<label for="amount">Valor (R$) :<br /></label>
+				<input type="text" id="valorRefrigerante" placeholder="" />
+			</div>
+			<div class="form-control">
+				<label for="text">Quantidade :</label>
+				<input type="number" id="qtdRefrigerante" min="1" />
+			</div>
+			<div class="form-control">
+				<h3>OBSERVAÇÕES</h3>
+			</div>
+			<!-- <div class="form-control">
+				<label for="amount">Valor (R$) :<br /></label>
+				<input type="text" id="text" placeholder="" />
+			</div> -->
+			<div class="form-control">
+				<label for="text">Quantos tomarão refrigerante ?</label>
+				<input type="number" id="qtdTomaRefri" min="1" />
+			</div>
+			<br>
+			<button class="btn">Calcular</button>
+		</form>
+
+		<div id="result" class="none">
+			<div class="inc-exp-container">
+				<div>
+					<h4>Total X-Salada</h4>
+					<p id="xsalada" class="money plus">R$ 0.00</p>
+				</div>
+
+				<div>
+					<h4>Toral Refri</h4>
+					<p id="refrigerante" class="money plus">R$ 0.00</p>
+				</div>
+			</div>
+
+			<div class="inc-exp-container">
+				<div>
+					<h4>x-salada + refri</h4>
+					<p id="pagaCombo" class="money plus">R$ 0.00</p>
+				</div>
+
+				<div>
+					<h4>x-salada</h4>
+					<p id="pagaSimples" class="money plus">R$ 0.00</p>
+				</div>
+			</div>
+
+			<h4>Valor Final</h4>
+			<hr>
+			<h1 id="balance" class="balance">R$ 0.00</h1>
+			<a class="btn" id="recalcular">Voltar</a>
+			<br>
+		</div>
+		
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
