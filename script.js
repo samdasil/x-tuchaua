@@ -24,6 +24,15 @@ let inputQtdTomaRefri       = document.querySelector('#qtdTomaRefri')
 // const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 // let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
+const validInput = text => {
+    if(isNaN(text.value)){
+        console.log('isNaN: ' + text.value);
+        return 
+    }else{
+        console.log('isNumber: '+ text.value);
+        return text
+    }    
+}
 
 const handleFormSubmit = e => {
     e.preventDefault()
@@ -51,6 +60,7 @@ const handleFormSubmit = e => {
 }
 
 const handleShowForm = e => {
+    e.preventDefault()
     form.classList.remove('none')
     divResult.classList.add('none')
 }
