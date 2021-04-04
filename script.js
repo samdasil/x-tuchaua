@@ -66,14 +66,14 @@ const calculate = (valorXsalada, qtdXsalada, valorRefrigerante, qtdRefrigerante,
     const valorCombo = (((valorRefrigerante *  qtdRefrigerante) / qtdTomaRefri) + Number(valorXsalada))
 
     
-    updateDisplay(valorTotalXSalada, valorTotalRefri, valorSimples, valorCombo)
+    updateDisplay(valorTotalXSalada, valorTotalRefri, valorSimples, valorCombo, qtdTomaRefri, qtdXsalada, qtdRefrigerante)
 }
 
-const updateDisplay = (valorTotalXSalada, valorTotalRefri, valorSimples, valorCombo) => {
+const updateDisplay = (valorTotalXSalada, valorTotalRefri, valorSimples, valorCombo, qtdTomaRefri, qtdXsalada, qtdRefrigerante) => {
     xSaladaDisplay.textContent      = `R$ ${valorTotalXSalada.toFixed(2)}`
     refrigeranteDisplay.textContent = `R$ ${valorTotalRefri.toFixed(2)}`
-    valorComboDisplay.textContent   = `R$ ${valorCombo.toFixed(2)}`
-    valorSimplesDisplay.textContent = `R$ ${valorSimples.toFixed(2)}`
+    valorComboDisplay.textContent   = `${qtdTomaRefri} x R$ ${valorCombo.toFixed(2)}`
+    valorSimplesDisplay.textContent = `${qtdXsalada - qtdTomaRefri} x R$ ${valorSimples.toFixed(2)}`
     totalBalanceDisplay.textContent = `R$ ${(valorTotalXSalada + valorTotalRefri).toFixed(2)}`
     form.classList.add('none')
     divResult.classList.remove('none')
