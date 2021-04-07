@@ -120,7 +120,7 @@ const handleGenerateQRCode = e => {
     setTimeout(() => {
         up.classList.remove('none')
     },2000)
-    setTimeout(() => {audioIupi.play()},10)
+    setTimeout(() => {audioIupi.play()},1400)
     setTimeout(() => {up.classList.add('none')},3000)
     
     // fetch('https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+key)
