@@ -114,23 +114,13 @@ const handleGenerateQRCode = e => {
     btnqrcodeDisplay.classList.remove('active')
 
     imgQRCodeDisplay.setAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=nuapp://cpf/'+key)
-
+    
     divQRCode.classList.remove('none')
 
-    setTimeout(() => {
-        up.classList.remove('none')
-    },2000)
-    setTimeout(() => {audioIupi.play()},1400)
+    setTimeout(() => {up.classList.remove('none')},2000)
+    setTimeout(() => {audioIupi.play()},1600)
     setTimeout(() => {up.classList.add('none')},3000)
     
-    // fetch('https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+key)
-    // .then(
-    //     response => {
-    //         console.log('Response', response);
-    //         return response
-    //     }
-    // )
-    // .then(console.log(response))
 }
 
 const handleChangeInputQRCode = e => {
