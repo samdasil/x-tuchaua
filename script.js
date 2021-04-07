@@ -7,6 +7,13 @@ const totalBalanceDisplay   = document.querySelector('#balance')
 const form                  = document.querySelector('#form')
 const buttonRecalcular      = document.querySelector('#recalcular')
 const divResult             = document.querySelector('#result')
+const divQRCode             = document.querySelector('.qrcode')
+const btnqrcodeDisplay      = document.querySelector('#btnqrcode')
+const up                    = document.querySelector('.up')
+const audioIupi             = document.querySelector('audio')
+
+let inputQRCode             = document.querySelector('#codePix')
+let imgQRCodeDisplay        = document.querySelector("#qrcode")
 let inputValorXSalada       = document.querySelector('#valorXsalada')
 let inputQtdXSalada         = document.querySelector('#qtdXsalada')
 let inputValorRefrigerante  = document.querySelector('#valorRefrigerante')
@@ -96,3 +103,45 @@ const cleanInputsTransaction = () => {
     inputQtdRefrigerante.value      = ''
     qtdTomaRefri                    = ''
 }
+
+const handleGenerateQRCode = e => {
+    e.preventDefault()
+
+    const key = inputQRCode.value.trim()
+
+    btnqrcodeDisplay.classList.add('bg-gray')
+    
+    btnqrcodeDisplay.classList.remove('active')
+
+    imgQRCodeDisplay.setAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=nuapp://cpf/'+key)
+
+    divQRCode.classList.remove('none')
+
+    setTimeout(() => {
+        up.classList.remove('none')
+    },2000)
+    setTimeout(() => {audioIupi.play()},10)
+    setTimeout(() => {up.classList.add('none')},3000)
+    
+    // fetch('https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+key)
+    // .then(
+    //     response => {
+    //         console.log('Response', response);
+    //         return response
+    //     }
+    // )
+    // .then(console.log(response))
+}
+
+const handleChangeInputQRCode = e => {
+    e.preventDefault()
+
+    btnqrcodeDisplay.classList.add('active')
+
+    divQRCode.classList.add('none')
+
+}
+
+formCode.addEventListener('submit', handleGenerateQRCode)
+
+inputQRCode.addEventListener('focus', handleChangeInputQRCode)
